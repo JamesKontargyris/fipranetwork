@@ -1,0 +1,7 @@
+.semi-colon-list__list-item { // add semi-colons to all but the last item in an inline text list
+  &:not(:last-child) {
+    &:after {
+      content: '; ';
+    }
+  }
+}

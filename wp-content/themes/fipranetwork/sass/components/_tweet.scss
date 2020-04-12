@@ -1,0 +1,26 @@
+.tweet__group {
+  position: relative;
+  margin-bottom:$base-spacing;
+}
+
+.tweet {
+  @include box();
+  @include font-size(14, 20);
+  margin-bottom:1rem;
+  color:$soft-black;
+}
+
+.tweet__meta {
+  font-style: normal;
+  @include font-size(12, 14);
+  font-weight: 800;
+  color:$dark-grey;
+  margin-top:$base-spacing / 2;
+}
+
+.tweet__buttons {
+  float:right;
+  a {
+    padding-left:10px;
+  }
+}

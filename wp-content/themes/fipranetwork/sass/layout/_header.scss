@@ -1,0 +1,100 @@
+header.site__header {
+  position: relative;
+  @include clearfix;
+  max-width:$max-container-width;
+  margin:3rem auto 7rem;
+  padding-left:3rem;
+  padding-right:3rem;
+  z-index: z('elite');
+
+  @include grid-media($grid-desktop) {
+    margin:5rem auto 7rem;
+  }
+
+  &.is-fixed {
+    position: fixed;
+    width:100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .site__header__logo {
+    position: relative;
+    float:left;
+    margin:0;
+    padding:0;
+    @include font-size(34, 34);
+    font-family: $font-body;
+    width:12rem;
+    height:3.733332rem;
+    background-size:12rem 3.733332rem;
+    cursor:pointer;
+    text-indent: -999rem;
+  }
+
+  .site__header__logo--blue--desktop {
+    @include grid-media($grid-desktop) {
+      background:url(img/fipra-network-logo-blue.svg) center no-repeat;
+    }
+  }
+
+  .site__header__logo--blue--tablet {
+    @include grid-media($grid-tablet) {
+      background:url(img/fipra-network-logo-blue.svg) center no-repeat;
+    }
+  }
+
+  .site__header__logo--blue--mobile {
+    @include grid-media($grid-mobile) {
+      background:url(img/fipra-network-logo-blue.svg) center no-repeat;
+    }
+  }
+
+  .site__header__logo--white--desktop {
+    @include grid-media($grid-desktop) {
+      background:url(img/fipra-network-logo-white.svg) center no-repeat;
+    }
+  }
+
+  .site__header__logo--white--tablet {
+    @include grid-media($grid-tablet) {
+      background:url(img/fipra-network-logo-white.svg) center no-repeat;
+    }
+  }
+
+  .site__header__logo--white--mobile {
+    @include grid-media($grid-mobile) {
+      background:url(img/fipra-network-logo-white.svg) center no-repeat;
+    }
+  }
+
+  .site__header__logo--white {
+    background:url(img/fipra-network-logo-white.svg) center no-repeat;
+    color:white;
+  }
+
+  .site__header__logo--blue,
+  .site__header__logo--nav-is-open   {
+    background:url(img/fipra-network-logo-blue.svg) center no-repeat !important;
+    color:$logo-blue;
+  }
+
+
+  .site__header__links-container {
+    display: flex;
+    align-items: center;
+    float:right;
+    line-height:1;
+
+    //@include grid-media($grid-desktop) {
+    //  height:5.5rem;
+    //}
+  }
+
+}
+
+.hamburger {
+  &:focus {
+    outline:none;
+  }
+}

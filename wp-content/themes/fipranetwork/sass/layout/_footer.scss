@@ -1,0 +1,83 @@
+footer.site__footer {
+  background: $dark-grey;
+  padding: 4rem;
+
+  @include grid-media($grid-desktop) {
+    padding: 8rem 4rem;
+
+    // Overrule standard text link hover rule
+    a:active,
+    a:focus,
+    a:hover {
+      color: $mid-grey;
+    }
+  }
+}
+
+.site__footer__container {
+  @include container(false); // padding is set on parent
+
+  @include grid-media($grid-tablet-plus) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.footer__col {
+  @include font-size(16, 24);
+  color: $mid-grey;
+  margin-bottom: $base-spacing * 2;
+
+  p {
+    @include font-size(16, 24); // overrule base p styling
+  }
+
+  @include grid-media($grid-tablet-plus) {
+    text-align: left;
+    flex-basis: 50%;
+
+    &:not(:nth-child(2n)) {
+      padding-right: 3rem; // horizontal space between blocks
+    }
+  }
+
+  @include grid-media($grid-desktop) {
+    flex-basis: 25%;
+    margin-bottom:0;
+
+    &:not(:last-child) {
+      padding-right: 3rem; // horizontal space between blocks
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: white;
+  }
+
+  &:first-of-type {
+    @include font-size(13, 18);
+  }
+
+  .widget {
+    margin-bottom: $base-spacing;
+  }
+
+  ul.menu {
+    @include v-menu;
+  }
+}
+
+.footer__logo {
+  max-width: 7rem;
+}
+
+.footer__icon {
+  max-width: 2.8rem;
+  transition: all $base-duration $base-timing;
+}
+
+@include grid-media($grid-desktop) {
+  a .footer__icon:hover {
+    opacity: 0.7;
+  }
+}

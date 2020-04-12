@@ -1,0 +1,217 @@
+nav.nav--primary {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: z('above-all');
+  background: url(img/bg-primary-nav.svg) center no-repeat, white;
+  background-size:cover;
+  padding-top: 8rem;
+
+  &.search-is-open { // added padding on mobile / tablet when the search bar is open
+    @include grid-media($grid-tablet-max) {
+      padding-top: 14rem;
+    }
+  }
+
+  @include grid-media($grid-desktop) {
+    padding-top: 10rem;
+  }
+
+  &.is-open {
+    display: block;
+  }
+}
+
+.nav--primary__menu__container {
+  position: relative;
+  display: none;
+  height:100%;
+}
+
+.is-touch { // standard version
+  .nav--primary__menu__container--is-open {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.no-touch { // desktop version
+  .nav--primary__menu__container--is-open {
+    display: block;
+  }
+}
+
+// STANDARD TOUCH-FRIENDLY VERSION
+ul.nav--primary__menu {
+
+  width: 100%;
+  @include v-menu('top', 0);
+
+  > li { // level 1
+    margin-bottom: 0;
+    text-align: center;
+    padding:$base-spacing 0;
+
+    > a:link,
+    > a:visited {
+      display: block;
+      font-family: $font-headings-regular;
+      color: $green;
+      @include font-size(34, 36);
+      letter-spacing: -0.1rem;
+      white-space: nowrap;
+      @include transition;
+
+      @include grid-media($grid-desktop) {
+        @include font-size(26, 28);
+      }
+    }
+
+    > ul { // level 2
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include v-menu('top', 2rem);
+      margin: 0 -3rem; // negative margin to reach edges of screen
+      padding: 2rem 3rem; // extra padding to move text to normal position
+      background: $light-grey;
+      width: calc(100% + 6rem); // allows for extra padding
+      height: 100vh;
+
+      li {
+        margin-bottom: 0;
+        font-family: $font-headings-regular;
+
+        > a:link,
+        > a:visited {
+          @include font-size(22, 24);
+        }
+      }
+    }
+  }
+}
+
+// NO TOUCH DESKTOP VERSION
+.no-touch {
+  ul.nav--primary__menu {
+    @include grid-media($grid-desktop) {
+      @include h-menu('right', 4rem);
+      justify-content: center;
+      margin-top: $base-spacing * 4;
+
+      > li { // Level 1
+        position: relative;
+
+        &:active,
+        &:focus,
+        &:focus-within,
+        &:hover {
+          > ul { // show sub-menu on li hover
+            display: block;
+          }
+
+          > a:link,
+          > a:visited { // keep the hover styling for links when mousing over a sub-menu
+            color: $logo-blue;
+            font-size: 3.8rem;
+            font-family: $font-headings;
+
+            ~ ul { // show sub-menu on anchor hover
+              display: block;
+            }
+          }
+        }
+
+        > a:link,
+        > a:visited {
+          font-family: $font-headings-regular;
+          color: $green;
+          @include font-size(28, 34);
+          letter-spacing: -0.1rem;
+          white-space: nowrap;
+          @include transition;
+
+          &:active,
+          &:focus,
+          &:hover {
+            color: $logo-blue;
+            font-size: 3.8rem;
+            font-family: $font-headings;
+
+            ~ ul { // show sub-menu on anchor hover
+              display: block;
+            }
+          }
+        }
+
+        > ul { // Level 2
+          display: none;
+          @include v-menu('top', 1.5rem);
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 40rem;
+          padding-top: 5rem; // add some extra space above the arrow without making the sub-menu inaccessible
+          z-index: -1; // push sub-menu back behind the top-level link, so the top-level link is clickable
+          text-align:left;
+          background: transparent;
+
+          &:before {
+            content: ' ';
+            display: block;
+            width: 2.6rem;
+            height: 1.5rem;
+            background: url(img/sub-menu-arrow.svg) center no-repeat;
+          }
+
+          li {
+            margin-right: 0;
+            margin-top:1.5rem;
+            margin-bottom: 0;
+
+            a {
+              display: block;
+              font-family: $font-headings-regular;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.button--sub-menu-back-arrow {
+  @include button-reset;
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  background: url(img/icon-left-arrow-dark-grey.svg) center no-repeat;
+  background-size: 2rem;
+  margin-bottom: 2rem;
+  margin-left:2rem;
+}
+
+.nav--primary__sub-menu-heading {
+  margin-bottom:3.5rem;
+}
+
+.nav--primary__sub-menu-heading,
+.button--sub-menu-back-arrow {
+  @include grid-media($grid-desktop) {
+    display: none;
+  }
+}
+
+.is-touch {
+
+  .nav--primary__sub-menu-heading,
+  .button--sub-menu-back-arrow {
+    display: block;
+  }
+
+}
+

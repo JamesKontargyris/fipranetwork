@@ -1,0 +1,206 @@
+.feature-quote {
+  padding: 5rem 0;
+  //margin:$base-spacing * 2 auto;
+  //width: 80%;
+  transition: all 0.8s ease-out;
+  background: url(img/bg-feature-quote.svg) center no-repeat, linear-gradient(to bottom right, tint($light-grey, 30%) 30%, $light-grey 100%);
+  background-size: cover, auto;
+
+  @include grid-media($grid-tablet-plus) {
+    padding: 10rem 0;
+  }
+
+  &.is-visible { // stretch to 100% on scroll with ScrollMagic - see scrollmagic-scenes.js
+    width: 100%;
+    transform: none;
+  }
+}
+
+.feature-quote__content-container {
+  @include container;
+}
+
+.feature-quote__content {
+
+  @include grid-media($grid-tablet) {
+    @include grid-column(11);
+    @include grid-push(0.5);
+  }
+
+  @include grid-media($grid-desktop) {
+    @include grid-column(9);
+    @include grid-push(1);
+  }
+}
+
+.feature-quote__quote {
+  position: relative;
+  @include font-size(24, 36);
+  margin-left: 0;
+  color: $dark-grey;
+  font-family: $font-headings-regular-italic;
+  padding: 5.5rem 0 6rem;
+  text-align: center;
+
+  p {
+    @include font-size(24, 36);
+
+    &:last-child {
+      margin-bottom:0;
+    }
+
+    @include grid-media($grid-tablet-plus) {
+      @include font-size(28, 44);
+    }
+  }
+
+  @include grid-media($grid-tablet-plus) {
+    top: 0;
+    padding: 0.5rem 6rem 0.5rem 9rem;
+    text-align: left;
+  }
+}
+
+.feature-quote__quote--with-quote-marks {
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    content: '\201c';
+    font-family: $font-headings-italic;
+    color: $dark-blue;
+    @include font-size(110, 110);
+  }
+
+  &:after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    content: '\201d';
+    font-family: $font-headings-italic;
+    color: $dark-blue;
+    @include font-size(110, 110);
+    line-height:1rem;
+  }
+
+  @include grid-media($grid-tablet-plus) {
+    &:before {
+      @include font-size(150, 150); // big quote mark
+      left: 0;
+      transform: none;
+    }
+
+    &:after {
+      @include font-size(150, 150); // big quote mark
+      line-height:1rem;
+      left:auto;
+      right: 0;
+      transform: none;
+    }
+  }
+}
+
+.feature-quote__citation-container {
+  margin-top: 4rem;
+  text-align: center;
+
+  @include grid-media($grid-tablet-plus) {
+    margin-left: 9rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+  }
+}
+
+.feature-quote__citation__photo {
+  display: block;
+
+  @include grid-media($grid-tablet-plus) {
+    margin-right: 1.5rem;
+  }
+
+  img {
+    background: white;
+    @extend .rounded;
+    width: 14rem;
+    height: 14rem;
+    max-width: none; // overrule base max-width:100% rule
+    @include base-box-shadow;
+  }
+
+}
+
+.feature-quote__citation__name {
+  @include font-size(24, 26);
+  font-family: $font-headings;
+  color: $dark-blue;
+  letter-spacing: -0.1rem;
+  margin-bottom: 0.5rem;
+
+  @include grid-media($grid-tablet-plus) {
+    @include font-size(30, 32);
+  }
+}
+
+.feature-quote__citation__role {
+  @include font-size(20, 24);
+  font-family: $font-headings-regular;
+  color: $dark-grey;
+}
+
+.feature-quote__contact-info {
+  @include font-size(18, 24);
+}
+
+.feature-quote__contact-info--telephone {
+
+  &:before {
+    background: url(img/icon-fipriot-contact-telephone-dark-blue.svg) left 0.3rem no-repeat;
+  }
+}
+
+.feature-quote__contact-info--email {
+
+  &:before {
+    background: url(img/icon-fipriot-contact-email-dark-blue.svg) left 0.3rem no-repeat;
+  }
+}
+
+.feature-quote__contact-info--profile {
+
+  &:before {
+    background: url(img/icon-fipriot-contact-profile-dark-blue.svg) left 0.3rem no-repeat;
+  }
+}
+
+.feature-quote__contact-info--telephone,
+.feature-quote__contact-info--email,
+.feature-quote__contact-info--profile {
+  margin-top: 1rem;
+
+  @include grid-media($grid-tablet-plus) {
+    display: inline-block;
+    &:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+  }
+
+  @include grid-media($grid-desktop) {
+    margin-top: 1rem;
+  }
+
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 1.6rem;
+    height: 1.9rem;
+    background-size: 1.6rem 1.6rem;
+  }
+}
+
+.feature-quote__citation__links {
+  margin-top: 1rem;
+}

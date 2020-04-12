@@ -1,0 +1,394 @@
+body {
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+}
+
+strong {
+  font-family: $font-body-bold;
+  font-weight: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-font-family;
+  font-size: $base-font-size;
+  line-height: $heading-line-height;
+  margin: 0 0 $base-spacing;
+  color:$dark-grey;
+  font-weight:normal;
+
+  &.with-line {
+    &:after {
+      margin:$base-spacing  0;
+      display: block;
+      content: " ";
+      width: 4rem;
+      height:0.2rem;
+      background: $green;
+    }
+  }
+
+  &.with-line--white {
+    &:after {
+      background: white;
+    }
+  }
+
+  &.with-line--dark-grey {
+    &:after {
+      background: $dark-grey;
+    }
+  }
+}
+
+h1, .style-as-h1 {
+  @include font-size(54,60);
+  margin-bottom:$base-spacing * 2;
+  letter-spacing: -0.2rem;
+  color:$logo-blue;
+
+  @include grid-media($grid-tablet-plus) {
+    @include font-size(72,76);
+    letter-spacing: -0.3rem;
+
+    &.with-line {
+      &:after {
+        margin:$base-spacing * 2  0; // larger margin than standard heading
+      }
+    }
+  }
+
+}
+
+h2, .style-as-h2 {
+  @include font-size(36,42);
+  letter-spacing: -0.1rem;
+  margin-bottom:$base-spacing * 2;
+
+  @include grid-media($grid-tablet-plus) {
+    @include font-size(42,46);
+    letter-spacing: -0.2rem;
+  }
+}
+
+h3, .style-as-h3 {
+  @include font-size(34,38);
+  letter-spacing: -0.1rem;
+}
+
+h4, .style-as-h4 {
+  @include font-size(24,30);
+  letter-spacing: -0.05rem;
+}
+
+h5, .style-as-h5 {
+  @include font-size(20,24);
+}
+
+h6, .style-as-h6 {
+  @include font-size(15,18);
+  text-transform: uppercase;
+  font-family: $font-body-bold;
+  letter-spacing: 0.4rem;
+}
+
+p {
+  font-size: $base-font-size * 1.1; // increase size slightly on mobile and tablet
+  line-height: $base-line-height * 0.9; // reduce line-height slightly on mobile and tablet
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-bottom:$base-spacing * 1.5;
+
+  //&:last-of-type {
+  //  margin-bottom:0;
+  //}
+
+  @include grid-media($grid-desktop) {
+    font-size: $base-font-size;
+  }
+}
+
+//p + p {
+//  &:last-of-type {
+//    margin-bottom:0;
+//  }
+//}
+
+.lead-paragraph {
+  @include font-size(23, 38);
+  font-family: $font-headings-regular;
+  color:$dark-blue;
+
+  @include grid-media($grid-tablet-plus) {
+    @include font-size(23, 38);
+  }
+}
+
+blockquote {
+  position: relative;
+  padding:6rem 3rem;
+  margin-left:0;
+  margin-right:0;
+  margin-bottom:$base-spacing;
+  color:$dark-blue;
+  font-family: $font-headings-regular-italic;
+
+  p {
+    margin-top:0;
+    @include font-size(23, 38);
+  }
+
+  &:before {
+    position: absolute;
+    top:0;
+    left:1.5rem;
+    content:'\201c';
+    font-family: $font-headings-italic;
+    color:$yellow;
+    @include font-size(125, 125);
+  }
+
+  &:after {
+    position: absolute;
+    bottom:0;
+    left:1.5rem;
+    content:'\201d';
+    font-family: $font-headings-italic;
+    color:$yellow;
+    @include font-size(125, 125);
+    line-height:1rem;
+  }
+
+  @include grid-media($grid-tablet-plus) {
+    padding:0.5rem 9rem;
+
+    &:before {
+      top:0;
+      left:0;
+      @include font-size(150, 150);
+    }
+
+    &:after {
+      left:auto;
+      right:2rem;
+      top:0;
+      @include font-size(150, 150);
+      //line-height:1rem;
+    }
+  }
+}
+
+q {
+  @include font-size(23, 38);
+  color:$dark-blue;
+  font-family: $font-headings-regular-italic;
+}
+
+cite {
+  display: block;
+  @include font-size(12, 22);
+  color:$dark-blue;
+  font-family: $font-body-bold;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+  margin-bottom:$base-spacing;
+}
+
+blockquote + p > cite,
+blockquote + cite {
+
+  @include grid-media($grid-tablet-plus) {
+    padding-left:9rem;
+  }
+}
+
+.pull-quote--left,
+.pull-quote--right {
+  padding:$base-spacing $base-spacing * 2;
+
+  @include grid-media($grid-desktop) {
+    max-width:50rem;
+    box-sizing: content-box;
+    margin-left:0;
+    margin-right:0;
+    padding:$base-spacing * 2;
+  }
+}
+
+.pull-quote--left {
+
+  @include grid-media($grid-desktop) {
+    float: left;
+  }
+}
+
+.pull-quote--right {
+
+  @include grid-media($grid-desktop) {
+    float: right;
+  }
+}
+
+code, kbd, tt, var {
+  background: $light-grey;
+  padding:0.5rem;
+  @include font-size(16, 34);
+  color:$dark-grey;
+}
+
+pre {
+  background: $light-grey;
+  padding:1rem;
+  @include font-size(16, 30);
+  color:$dark-grey;
+  white-space: pre-wrap;
+}
+
+ins {
+  background-color: tint($yellow, 40%);
+}
+
+figcaption {
+  font-family: $font-body-italic;
+  color:tint($dark-grey, 25%);
+  @include font-size(16, 24);
+}
+
+abbr, abbr[title], acronym {
+  font-family: $font-headings-italic;
+  text-decoration:none;
+}
+
+a:link,
+a:visited {
+  color: $link-color;
+  text-decoration: none;
+  transition: all $base-duration $base-timing;
+}
+@include grid-media($grid-desktop) {
+  a:active,
+  a:focus,
+  a:hover {
+    color: $action-color;
+  }
+}
+
+ul, ol {
+  margin:0;
+  padding:0;
+}
+
+ul { // top level diamond bullet list
+  list-style: none inside none;
+
+  > li {
+    padding-left:3rem;
+    background:url(img/diamond-bullet-green.png) left 0.7rem no-repeat;
+    margin-bottom:1.5rem;
+
+    > ul { // second level bullet list
+      margin-top:1.5rem;
+      margin-left: 4.5rem;
+      list-style:disc inside none;
+
+      li {
+        background:none;
+        padding-left: 0;
+        > ul { // third level bullet list
+          list-style:circle inside none;
+        }
+      }
+    }
+  }
+
+}
+
+ol { // top level numbered list
+  padding-left:0;
+  list-style: decimal inside none;
+
+  li {
+    margin-bottom:1.5rem;
+
+    > ol { // second level numbered list
+      margin-top:1.5rem;
+      margin-left:4.5rem;
+      list-style:lower-roman inside none;
+
+      li > ol { // third level numbered list
+        list-style:lower-latin inside none;
+      }
+    }
+  }
+
+}
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%;
+}
+
+dl { // definition list
+  dt { // definition term
+    font-family: $font-headings;
+    font-weight:normal;
+  }
+}
+
+address {
+  font-family: $font-headings-regular;
+  font-style: normal;
+  line-height:$base-line-height;
+}
+
+
+// Text helpers
+.text--upper {
+  text-transform: uppercase;
+  letter-spacing: 0rem;
+}
+.text--center,
+.text--centre {
+  text-align: center;
+
+  &.with-line { // move line to centre for headings using the with-line class
+    &:after {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+.text--reduced-size {
+  font-size:50%;
+  line-height:25%;
+  letter-spacing: 0;
+}
+
+// Text colours
+.text--white {
+  color:white !important;
+}
+.text--dark-blue {
+  color:$dark-blue !important;
+}
+.text--yellow {
+  color:$yellow !important;
+}
+
+// Font weights
+.text--heading-regular {
+  font-family: $font-headings-regular;
+}
+
+// Font families
+.font--heading {
+  font-family: $font-headings;
+}

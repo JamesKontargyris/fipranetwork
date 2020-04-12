@@ -1,0 +1,133 @@
+.content-block {
+}
+
+.content-block__content {
+  @include container(false);
+  padding: 6rem 0;
+
+  p, h1, h2, h3, h4, h5, h6, ul, figure,
+  .resource,
+  .case-study-card,
+  .wp-block-columns,
+  .wpcf7 {
+    padding:0 3rem;
+  }
+
+  @include grid-media($grid-tablet-plus) {
+    padding: 6rem 0;
+
+    p, h1, h2, h3, h4, h5, h6, ul, figure,
+    .resource,
+    .case-study-card,
+    .wp-block-columns,
+    .wpcf7 {
+      padding:0 12rem;
+    }
+  }
+
+  @include grid-media($grid-desktop) {
+    padding: 9rem 0;
+
+    p, h1, h2, h3, h4, h5, h6, ul, figure,
+    .resource,
+    .case-study-card,
+    .wp-block-columns,
+    .wpcf7 {
+      padding:0 18rem;
+    }
+  }
+
+  // overrules
+  blockquote p {
+    padding-left:0;
+    padding-right:0;
+  }
+
+  &.content-block__content--no-lr-pad { // add *some* padding so the content doesn't touch the edges of the screen
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    p, h1, h2, h3, h4, h5, h6, ul, figure,
+    .resource,
+    .case-study-card,
+    .wp-block-columns,
+    .wpcf7 {
+      padding: 0 !important;
+    }
+
+    @include grid-media($grid-tablet-plus) {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  &.content-block__content--no-tb-pad {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  &.content-block__content--no-t-pad {
+    padding-top: 0;
+  }
+
+  &.content-block__content--no-b-pad {
+    padding-bottom: 0;
+  }
+
+  &.content-block__content--flat {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  &.content-block__content--full-width {
+    max-width: none;
+
+    p, h1, h2, h3, h4, h5, h6, ul, figure,
+    .resource,
+    .case-study-card,
+    .wp-block-columns,
+    .wpcf7 {
+      padding-left:0;
+      padding-right:0;
+    }
+  }
+}
+
+
+.content-block--highlight-light {
+  background: url(img/bg-content-block-highlight-light.svg) center, linear-gradient(to bottom right, tint($light-grey, 30%) 30%, $light-grey 60%, shade($light-grey, 10%) 100%);
+  background-size: 260rem, auto;
+}
+
+.content-block--highlight-dark {
+  background: url(img/bg-content-block-highlight-dark.svg) center, linear-gradient(to bottom right, tint($dark-blue, 15%) 30%, $dark-blue 60%, shade($dark-blue, 20%) 100%);
+  background-size: 260rem, auto;
+
+  .content-block__content {
+    color: white;
+
+    a:link,
+    a:visited {
+      color: tint($link-color, 25%);
+      text-decoration: none;
+      transition: all $base-duration $base-timing;
+    }
+    @include grid-media($grid-desktop) {
+      a:active,
+      a:focus,
+      a:hover {
+        color: tint($action-color, 25%);
+      }
+    }
+  }
+}
+
+// Overrules
+.wp-block-column,
+.wpcf7,
+.case-study-card {
+  p, h1, h2, h3, h4, h5, h6, ul {
+    padding-left:0;
+    padding-right:0;
+  }
+}

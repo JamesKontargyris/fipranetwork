@@ -1,0 +1,93 @@
+.concept-card-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.concept-card {
+  position: relative;
+  width:100%;
+  padding:4rem 3rem;
+  text-align: center;
+  border-radius: $base-border-radius;
+  margin-top:$base-spacing * 2;
+  margin-left:1rem;
+  margin-right:1rem;
+
+  &.concept-card--with-icon {
+    margin-top:7.8rem + ($base-spacing * 2); // to allow for icon
+    padding-top:6rem; // extra padding
+  }
+
+  @include grid-media($grid-tablet-plus) {
+    width:33rem;
+  }
+}
+
+.concept-card__icon {
+  position: absolute;
+  top:-7.8rem;
+  left:50%;
+  transform: translateX(-50%);
+  width:8.5rem;
+  height:11rem;
+  margin:0 auto;
+  text-align: center;
+
+  img {
+    position: relative;
+    top:5rem;
+    max-width:3.6rem;
+  }
+}
+
+.concept-card__title {
+  @include font-size(26,32);
+  letter-spacing: -0.05rem;
+  font-family: $font-headings;
+  margin-bottom:$base-spacing;
+}
+
+.concept-card__description,
+.concept-card__description p {
+  @include font-size(17, 26);
+}
+
+
+// Variations
+
+.concept-card--light {
+  background:rgba(black, 0.1);
+  border:0.1rem solid rgba($dark-grey, 0.5);
+  border-bottom:0.3rem solid rgba($dark-grey, 0.5);
+
+  .concept-card__icon {
+    background:url(img/bg-concept-card-icon-light.svg) center no-repeat;
+  }
+
+  .concept-card__title {
+    color:white;
+  }
+
+  .concept-card__description {
+    color:$mid-grey;
+  }
+}
+
+.concept-card--dark {
+  background:rgba(white, 0.5);
+  border:0.1rem solid rgba($mid-grey, 0.5);
+  border-bottom:0.3rem solid rgba($mid-grey, 0.5);
+
+  .concept-card__icon {
+    background:url(img/bg-concept-card-icon-dark.svg) center no-repeat;
+  }
+
+  .concept-card__title {
+    color:$dark-blue;
+  }
+
+  .concept-card__description {
+    color:$dark-grey;
+  }
+}

@@ -1,0 +1,245 @@
+.case-study-menu {
+  position: relative;
+}
+
+.case-study-menu__bg-bar {
+  position: absolute;
+  width:100%;
+  height:23rem;
+  background: $light-grey;
+  top:50%;
+  left:0;
+  transform: translateY(-50%);
+  z-index: z('low');
+}
+
+.case-study-menu__items {
+  text-align: center;
+  width:100%;
+  //margin-top:-5rem;
+
+  .slick-slide {
+    height: 43rem !important;
+
+    @include grid-media($grid-desktop) {
+      height: 60rem !important;
+    }
+  }
+
+  &.case-study-menu--1-items {
+    .slick-slide {
+      @include grid-media($grid-desktop) {
+        height: 43rem !important; // reduce height when only one case study as we don't have to allow for the flipped diamonds
+      }
+    }
+  }
+
+  &.case-study-menu--1-items,
+  &.case-study-menu--2-items,
+  &.case-study-menu--3-items,
+  &.case-study-menu--4-items,
+  &.case-study-menu--5-items {
+
+    //&:before { // yellow outline diamonds pattern
+    //  content:' ';
+    //  position: absolute;
+    //  left:0;
+    //  top:0;
+    //  width:100%;
+    //  height:60rem;
+    //  background:url(img/bg-case-study-slider-pattern-small-screens.svg) center repeat-x;
+    //
+    //  @include grid-media($grid-desktop) {
+    //    background:url(img/bg-case-study-slider-pattern.svg) center repeat-x;
+    //  }
+    //}
+
+  }
+
+  &.case-study-menu--3-items { // reverse the pattern to allow for the shift across of 1 case study diamond
+    @include grid-media($grid-desktop) {
+      //&:before {
+      //  background:url(img/bg-case-study-slider-pattern-reverse.svg) center repeat-x;
+      //}
+    }
+  }
+}
+
+.case-study-menu__item__content {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  position: relative;
+  padding-top:13rem;
+  width:25rem;
+  height:18rem;
+  margin:0 auto;
+}
+
+//.case-study-menu__item__mini-title {
+//  @include font-size(13, 15);
+//  color:$yellow;
+//  letter-spacing: 0.3rem;
+//  text-transform: uppercase;
+//  margin-bottom:0.5rem;
+//}
+
+.case-study-menu__item__title {
+  @include font-size(26, 30);
+  font-family: $font-headings;
+  color:white;
+  letter-spacing: -0.1rem;
+}
+
+.case-study-menu__item__more-link {
+  position: absolute;
+  left:50%;
+  bottom:-16rem;
+  transform: translate(-50%);
+  @include transition;
+
+  @include grid-media($grid-desktop) {
+    opacity:0;
+  }
+
+  a:link,
+  a:visited {
+    color:white;
+    font-family: $font-headings;
+    @include font-size(15, 16);
+
+    &:after {
+      content: ' \00bb';
+      @include font-size(24, 24);
+      color:$yellow;
+    }
+  }
+}
+
+.case-study-menu__item__yellow-diamond {
+  position: absolute;
+  top:1rem;
+  left:50%;
+  transform: translate(-50%);
+  width:5.5rem;
+  height:7rem;
+  background: url(img/diamond-yellow-border--up.svg) center no-repeat;
+  background-size:contain;
+}
+
+.case-study-menu__item { // standard diamond, pointing up
+  position: relative;
+  background: $dark-blue;
+  width:35rem;
+  height:43rem;
+  @include clip--case-study-menu-item;
+  @include transition;
+
+  @include grid-media($grid-desktop) {
+    margin:0 -7.5rem;
+
+    &:active,
+    &:focus,
+    &:hover {
+      background: $light-blue !important;
+    }
+  }
+}
+
+.case-study-menu__item:nth-child(2n) { // upside-down diamond on desktop, standard diamond on mobile and tablet
+  position: relative;
+
+
+  @include grid-media($grid-desktop) {
+    @include clip--case-study-menu-item--reverse;
+    top:14rem;
+
+    .case-study-menu__item__content {
+      display: block;
+      padding-top:20rem; // allow extra padding for upside down diamond shape
+    }
+
+    .case-study-menu__item__yellow-diamond {
+      position: absolute;
+      top:34rem;
+      background: url(img/diamond-yellow-border--down.svg) center no-repeat;
+    }
+  }
+
+}
+
+a.case-study-menu__item__full-size-anchor {
+  display: block;
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index: z('high');
+
+  &:active,
+  &:focus,
+  &:hover {
+    @include grid-media($grid-desktop) {
+      ~ .case-study-menu__item__content .case-study-menu__item__more-link {
+        opacity:1; // show 'more' link when full size anchor is active / focused / hovered over on desktop (already visible on mobile / tablet)
+      }
+    }
+  }
+}
+
+.case-study-menu__cta {
+  text-align: center;
+  margin-top:$base-spacing;
+}
+
+
+
+
+
+//.case-study-menu__nav {
+//  text-align: center;
+//  margin-top:$base-spacing;
+//
+//  @include grid-media($grid-desktop) {
+//    margin-top:0;
+//
+//  }
+//}
+//
+//.case-study-menu--slider-prev,
+//.case-study-menu--slider-next {
+//  @include button-reset;
+//}
+//
+//.case-study-menu--slider-prev,
+//.case-study-menu--slider-next {
+//  width:7rem;
+//  height:5.5rem;
+//  background-size: 7rem 5.5rem;
+//  text-indent: -9999rem;
+//
+//  @include grid-media($grid-desktop) {
+//    position: absolute;
+//    top:calc(50% - 3.7rem);
+//    width:10rem;
+//    height:7.5rem;
+//    background-size: 10rem 7.5rem;
+//  }
+//}
+//
+//.case-study-menu--slider-prev {
+//  background:url(img/slider-prev.svg) center no-repeat;
+//
+//  @include grid-media($grid-desktop) {
+//    left:-4rem;
+//  }
+//}
+//
+//.case-study-menu--slider-next {
+//  background:url(img/slider-next.svg) center no-repeat;
+//
+//  @include grid-media($grid-desktop) {
+//    right:-4rem;
+//  }
+//}

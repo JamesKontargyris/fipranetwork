@@ -1,0 +1,66 @@
+// Typography
+$font-body:'GrotesqueMTStd', sans-serif;
+$font-body-bold:'GrotesqueMTStd-Bold', sans-serif;
+$font-body-italic:'GrotesqueMTStd-Italic', sans-serif;
+$font-headings:'Mandrel-NorBol', serif;
+$font-headings-italic:'Mandrel-NorBolIt', serif;
+$font-headings-regular:'Mandrel-NorReg', serif;
+$font-headings-regular-italic:'Mandrel-NorRegIt', serif;
+
+$base-font-family: $font-body;
+$heading-font-family: $font-headings;
+
+// Font Sizes
+$base-font-size: 1.8rem;
+
+// Line height
+$base-line-height: 1.9;
+$heading-line-height: 1.2;
+
+// Other Sizes
+$base-border-radius: 0.6rem;
+$base-spacing: $base-line-height * 1rem;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+// Primary Colours
+$logo-blue: rgb(40, 47, 111);
+$dark-blue: rgb(80, 122, 150);
+$light-blue: rgb(98, 173, 207);
+$dark-grey: rgb(76, 94, 108);
+$mid-grey: rgb(210, 214, 211);
+$light-grey: rgb(237, 237, 237);
+$yellow: rgb(239, 232, 142);
+$green: rgb(124, 196, 172);
+
+// Other Colours
+$white: hsl(0, 0, 100);
+$soft-black: rgb(34, 34, 34);
+
+
+// Font Colors
+$base-font-color: $soft-black;
+$action-color: $logo-blue;
+$link-color:$green;
+
+// Border
+$base-border-color: $light-grey;
+$base-border: 1px solid $base-border-color;
+
+// Background Colors
+$base-background-color: $light-grey;
+$secondary-background-color: tint($base-border-color, 75%);
+
+// Forms
+$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+
+// Animations
+$base-duration: 300ms;
+$base-timing: ease;
+
+// Container width
+$max-container-width:1140px;
+//$max-page-width:1300px;
+
+

@@ -1,0 +1,109 @@
+.no-margin {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  margin: 0 !important;
+}
+
+.no-margin-top {
+  margin-top: 0 !important;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0 !important;
+}
+
+.margin--extra-top {
+  margin-top: $base-spacing * 2 !important;
+}
+
+.margin--extra-bottom {
+  margin-bottom: $base-spacing * 2 !important;
+}
+
+.rounded {
+  border-radius: 100rem; // circle crop
+}
+
+.no-padding,
+.no-pad {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding: 0 !important;
+}
+
+.no-pad--top {
+  padding-top: 0 !important;
+}
+
+.no-pad--bottom {
+  padding-bottom: 0 !important;
+}
+
+.no-pad--left {
+  padding-left: 0 !important;
+}
+
+.no-pad--right {
+  padding-right: 0 !important;
+}
+
+.hide--desktop {
+  @include grid-media($grid-desktop) {
+    display: none !important;
+  }
+}
+
+.hide--tablet {
+  @include grid-media($grid-tablet) {
+    display: none !important;
+  }
+}
+
+.hide--mobile {
+  @include grid-media($grid-mobile) {
+    display: none !important;
+  }
+}
+
+// Position
+.position--relative {
+  position: relative;
+}
+
+
+//ScrollMagic classes
+
+.visible-on-scroll {
+  opacity: 0;
+  transition: all 0.8s ease-in-out;
+
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.float-down-on-scroll {
+  opacity:0;
+  position: relative;
+  top:-$base-spacing * 2;
+  transition: all 0.8s ease-in-out;
+
+  &.is-visible {
+    opacity:1;
+    top:0;
+    transform: none;
+  }
+}
+
+.sticky {
+  &.is-stuck {
+    left:50% !important;
+    transform: translateX(-50%);
+    z-index: z('above-all') !important;
+  }
+}

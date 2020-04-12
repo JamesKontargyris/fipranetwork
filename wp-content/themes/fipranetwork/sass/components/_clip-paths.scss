@@ -1,0 +1,59 @@
+@mixin clip--image-triangle-desktop() {
+  clip-path: polygon(0 0, 635.7px 830px, 2020px 0px);
+}
+
+@mixin clip--image-triangle-tablet() {
+  clip-path: polygon(830px 1200px, 1660px 568px, 830px -810px, -0.3px 568px);
+}
+
+@mixin clip--image-triangle-mobile() {
+  clip-path: polygon(665px 800px, 1330px 293px, 665px -810px, 0 293px);
+}
+
+@mixin clip--triangle-large-overlay() {
+  clip-path: polygon(0 0, 635.7px 830px, 2020px 0px);
+
+  @include grid-media($grid-desktop) {
+    clip-path: polygon(0 0, 618.6px 810.8px, 1965.3px 0);
+  }
+}
+
+@mixin clip--point-of-contact-photo() {
+  clip-path: polygon(68px 0, 0 50px, 68px 160px, 135px 50px);
+}
+
+@mixin clip--feature-quote-photo() {
+  clip-path: polygon(70px 0, 0 53px, 70px 170px, 140px 53px);
+}
+
+@mixin clip--case-study-menu-item() {
+  clip-path: polygon(175px 0, 0 133px, 175px 423px, 350px 133px);
+}
+
+@mixin clip--case-study-menu-item--reverse() {
+  clip-path: polygon(175px 423px, 350px 290px, 175px 0, 0 290px);
+}
+
+@mixin clip--global-network-country-flag() {
+  clip-path: polygon(75px 31px, 51px 0, 0 31px, 51px 62px);
+}
+
+@mixin clip--global-network-country-flag--small() {
+  clip-path: polygon(50px 21px, 34px 0, 0 21px, 34px 41px);
+}
+
+@mixin clip--hero-corner-triangle() {
+  clip-path: polygon(0 0, 900px 543px, 900px 0 );
+}
+
+@mixin clip--hero-corner-triangle--small() {
+  clip-path: polygon(0 0, 750px 450px, 750px 0);
+}
+
+@mixin clip--fipriot-profile-photo--small() {
+  clip-path: polygon(68px 0, 0 50px, 68px 160px, 135px 50px);
+}
+
+@mixin clip--fipriot-profile-photo--large() {
+  clip-path: polygon(136px 0, 0 100px, 136px 320px, 270px 100px);
+}

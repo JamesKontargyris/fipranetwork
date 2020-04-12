@@ -1,0 +1,7 @@
+.comma-list__list-item { // add commas to all but the last item in an inline text list
+  &:not(:last-child) {
+    &:after {
+      content: ', ';
+    }
+  }
+}

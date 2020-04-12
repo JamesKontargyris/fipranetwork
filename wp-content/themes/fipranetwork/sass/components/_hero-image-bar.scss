@@ -1,0 +1,63 @@
+.hero--image-bar {
+  position: relative;
+  margin-top:-13rem; // allow for header
+
+  @include grid-media($grid-desktop) {
+    margin-top:-17.5rem; // allow for header
+  }
+}
+
+.hero--image-bar-yellow-line {
+  position: absolute;
+  top: -9rem; // allows for the header bar and a bit more
+  left: 0;
+  right: 0;
+  background: url(img/hero-image-triangle-grey-line.svg) center no-repeat;
+  width: 106.5rem;
+  height: 45rem;
+  transform: translate(0, -20rem);
+  z-index: z('medium');
+
+  @include grid-media($grid-tablet) {
+    transform: translate(50%, 3rem);
+  }
+
+  @include grid-media($grid-desktop) {
+    transform: translate(70%, 0);
+  }
+
+  @include grid-media($grid-huge) { // position triangle in correct place on huge screens - overrule rule above
+    transform: translate(140%, 0) !important;
+  }
+}
+
+.hero--image-bar__content-container {
+  @include container;
+  padding-top:13rem; // to allow for negative margin above
+  padding-bottom:8rem;
+
+  @include grid-media($grid-tablet-plus) {
+    padding-top:17.5rem; // to allow for negative margin above
+    padding-bottom:12rem;
+  }
+}
+
+.hero--image-bar__content {
+  position: relative;
+
+  .hero__mini-title,
+  .hero__intro,
+  .hero__main-title {
+    color:white;
+  }
+
+  @include grid-media($grid-tablet) {
+    @include grid-column(10);
+    @include grid-push(1);
+  }
+
+  @include grid-media($grid-desktop) {
+    @include grid-column(9);
+    @include grid-push(1);
+  }
+}

@@ -1,0 +1,28 @@
+* {
+  z-index: z('default');
+}
+
+html {
+  min-height:100%;
+  position: relative;
+}
+body {
+  min-height:100%;
+  overflow-x: hidden;
+}
+
+hr {
+  margin:$base-spacing * 2 0;
+  border:0;
+  height:0.1rem;
+  width:100%;
+  background-color: $light-grey;
+}
+
+.container {
+  @include container;
+}
+
+.container--no-pad {
+  @include container(false);
+}

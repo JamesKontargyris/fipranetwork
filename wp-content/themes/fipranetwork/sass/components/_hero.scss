@@ -1,0 +1,44 @@
+.hero-container {
+  @include container;
+}
+
+.hero__content {
+  position: relative;
+  text-align: center;
+
+  @include grid-media($grid-tablet-plus) {
+    text-align: left;
+  }
+
+  .hero__mini-title {
+    color:$dark-blue;
+  }
+
+  .hero__intro {
+    color:$dark-grey;
+  }
+
+  .hero__mini-title,
+  .hero__intro,
+  .hero__main-title {
+
+    &.with-shadow {
+      text-shadow: 0 0.2rem 0.7rem rgba(black, 0.4);
+    }
+  }
+
+  .hero__main-title {
+    color: $logo-blue;
+    margin:0 0 2.4rem;
+  }
+
+  .hero__intro,
+  .hero__intro p {
+    @include font-size(19, 28);
+    margin:0;
+
+    @include grid-media($grid-tablet) {
+      @include font-size(22, 32); // can go a bit bigger on tablet
+    }
+  }
+}

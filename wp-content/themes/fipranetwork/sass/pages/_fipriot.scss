@@ -1,0 +1,274 @@
+.fipriot-profile__header {
+
+  @include grid-media($grid-tablet) {
+    margin-bottom:$base-spacing * 2;
+  }
+
+}
+
+.fipriot-profile__titles,
+.fipriot-profile__meta {
+  @include container;
+  position: relative;
+}
+
+.fipriot-profile__photo {
+
+  img {
+    display: block;
+    background:$light-grey;
+    @extend .rounded;
+    margin:0 auto $base-spacing;
+    width:18rem;
+    height:18rem;
+    border:0.1rem solid $yellow;
+  }
+
+  @include grid-media($grid-tablet-plus) {
+    position: absolute;
+    left:11rem;
+    top:-1rem;
+
+    img {
+      margin:0;
+      width:21rem;
+      height:21rem;
+    }
+  }
+
+  @include grid-media($grid-desktop) {
+    left:17rem;
+  }
+
+}
+
+.fipriot-profile__name {
+  @include font-size(42, 46);
+  margin-bottom:0.5rem;
+  letter-spacing:-0.2rem;
+  text-align: center;
+
+  @include grid-media($grid-tablet) {
+    @include font-size(54, 62);
+  }
+
+  @include grid-media($grid-desktop) {
+    @include font-size(60, 66);
+  }
+}
+
+.fipriot-profile__position {
+  margin-bottom:$base-spacing;
+  font-family: $font-headings-regular;
+  @include font-size(28, 32);
+  letter-spacing: -0.1rem;
+  text-align: center;
+}
+
+.fipriot-profile__titles-divider {
+  margin:$base-spacing 0;
+  height:0.1rem;
+  background-color: $yellow;
+}
+
+.fipriot-profile__meta {
+  position: relative;
+  text-align: center;
+
+  @include grid-media($grid-tablet-plus) {
+    padding-top:0;
+  }
+}
+
+.fipriot-profile__contact-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.fipriot-profile__contact-button {
+  width:4rem;
+  height:4rem;
+  text-indent:-999rem;
+  @include transition;
+  @extend .rounded;
+
+  &:not(:last-of-type) {
+    margin-right:1rem;
+  }
+
+  @include grid-media($grid-desktop) {
+    &:active,
+    &:focus,
+    &:hover {
+      opacity:0.7;
+    }
+  }
+}
+
+.fipriot-profile__contact-details {
+  margin-top:1.3rem;
+  @include font-size(20, 24);
+}
+
+.fipriot-profile__contact-details--telephone {
+
+  &:before {
+    background:url(img/icon-fipriot-contact-telephone-dark-blue.svg) left 0.3rem no-repeat;
+  }
+}
+
+.fipriot-profile__contact-details--email {
+
+  &:before {
+    background:url(img/icon-fipriot-contact-email-dark-blue.svg) left 0.3rem no-repeat;
+  }
+}
+
+.fipriot-profile__contact-details--telephone,
+.fipriot-profile__contact-details--email {
+  position: relative;
+  margin-top:1.5rem;
+  padding-left:2.3rem;
+
+  @include grid-media($grid-tablet-plus) {
+    margin-top:0.5rem;
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right:2.5rem;
+    }
+  }
+
+  &:before {
+    content: '';
+    display: inline-block;
+    width:1.8rem;
+    height:2.2rem;
+    background-size: 1.8rem;
+
+    @include grid-media($grid-tablet-plus) {
+      display: block;
+      position: absolute;
+      left:0;
+      top:0;
+    }
+  }
+}
+
+.fipriot-profile__contact-button--twitter {
+  background: url(img/icon-fipriot-contact-twitter.svg) center no-repeat, white;
+  background-size:4rem 4rem;
+}
+
+.fipriot-profile__contact-button--linkedin {
+  background: url(img/icon-fipriot-contact-buttonedin.svg) center no-repeat, white;
+  background-size:4rem 4rem;
+}
+
+.fipriot-profile__contact-button--email {
+  background: url(img/icon-fipriot-contact-email.svg) center no-repeat, white;
+  background-size:4rem 4rem;
+}
+
+.fipriot-profile__contact-button--telephone {
+  background: url(img/icon-fipriot-contact-telephone.svg) center no-repeat, white;
+  background-size:4rem 4rem;
+}
+
+
+
+
+
+
+
+
+.fipriot-profile__languages {
+  @include clearfix;
+}
+
+.fipriot-profile__language {
+  display: flex;
+  align-items: center;
+  margin-top:1.5rem;
+  width:50%;
+  float:left;
+
+  @include grid-media($grid-tablet) {
+    width:33%;
+  }
+
+  img {
+    width:4rem;
+    margin-right:0.5rem;
+    padding:0; // content-block override
+  }
+}
+
+.fipriot-profile__language--5-to-row {
+  @include grid-media($grid-desktop) {
+    width:20%;
+  }
+}
+
+.fipriot-profile__language--3-to-row {
+  @include grid-media($grid-desktop) {
+    width:33%;
+  }
+}
+
+.fipriot-profile__info-box--languages {
+  @include grid-media($grid-desktop) {
+    width:calc(60% - 2rem);
+    margin-right:2rem;
+  }
+}
+
+.fipriot-profile__info-box--practice-areas {
+  @include grid-media($grid-desktop) {
+    width:40%;
+  }
+}
+
+.fipriot-profile__info-box--languages,
+.fipriot-profile__info-box--practice-areas {
+
+  @include grid-media($grid-desktop) {
+    min-height:11.8rem;
+    float:left;
+  }
+}
+
+
+// with photo overrides
+
+.fipriot-profile__header--with-photo {
+
+  @include grid-media($grid-tablet-plus) {
+
+    .fipriot-profile__titles,
+    .fipriot-profile__meta {
+      padding-left:35rem;
+    }
+
+    .fipriot-profile__name,
+    .fipriot-profile__position,
+    .fipriot-profile__meta {
+      text-align:left;
+    }
+
+    .fipriot-profile__contact-buttons {
+      justify-content: left;
+    }
+
+  }
+
+  @include grid-media($grid-desktop) {
+
+    .fipriot-profile__titles,
+    .fipriot-profile__meta {
+      padding-left:41rem;
+    }
+
+  }
+
+}

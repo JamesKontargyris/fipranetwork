@@ -1,0 +1,252 @@
+.hero--image-triangle-container {
+  height: 70rem; // height of image triangle image allowing for header and negative margin
+
+  @include grid-media($grid-tablet) {
+    height: 110rem; // height of image triangle image allowing for header and negative margin
+  }
+
+  @include grid-media($grid-desktop) {
+    height: auto;
+    min-height:40rem;
+  }
+}
+
+.hero--image-triangle,
+.hero--image-triangle-overlay,
+.hero--image-triangle-border,
+.hero--image-triangle-grey-line,
+.hero--image-triangle-secondary-triangle {
+  position: absolute;
+  top: -5.5rem; // allows for the header bar
+  left: 0;
+  right: 0;
+
+  @include grid-media($grid-huge) { // position triangles in correct place on huge screens
+    margin: auto;
+    background-size: cover;
+  }
+}
+
+.hero--image-triangle {
+  background:$dark-blue;
+}
+
+.hero--image-triangle,
+.hero--image-triangle-overlay {
+  z-index: z('low');
+
+  @include grid-media($grid-desktop) {
+    z-index: z('medium');
+  }
+}
+
+.hero--image-triangle-border {
+  background: $green;
+  top: -3rem;
+  width: 133rem;
+  height: 80rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: z('below-all');
+  @include clip--image-triangle-mobile;
+
+  @include grid-media($grid-tablet) {
+    width: 166rem;
+    height: 120rem;
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    @include clip--image-triangle-tablet;
+  }
+
+  @include grid-media($grid-desktop) {
+    display: block;
+    width: 202rem;
+    height: 83rem;
+    top: -10rem; // extra negative margin
+    left:0;
+    transform: translate(-21%, 0);
+    z-index: z('low');
+    @include clip--image-triangle-desktop;
+  }
+
+  @include grid-media($grid-desktop-wide) {
+    transform: translate(-18%, 0);
+  }
+
+  @include grid-media($grid-huge) { // position triangle in correct place on huge screens - overrule rule above
+    transform: translate(-2%, 0);
+  }
+}
+
+.hero--image-triangle {
+  background-size: cover !important;
+  width: 133rem;
+  height: 80rem;
+  left: 50%;
+  transform: translateX(-50%);
+  @include clip--image-triangle-mobile;
+
+  @include grid-media($grid-tablet) {
+    width: 166rem;
+    height: 120rem;
+    @include clip--image-triangle-tablet;
+  }
+
+  @include grid-media($grid-desktop) {
+    width: 202rem;
+    height: 83rem;
+    left: 0;
+    transform: translate(-18%, 0);
+    @include clip--image-triangle-desktop;
+  }
+
+  @include grid-media($grid-desktop-wide) {
+    transform: translate(-15%, 0);
+  }
+
+  @include grid-media($grid-huge) {
+    transform: translate(4rem, 0);
+  }
+}
+
+.hero--image-triangle-overlay {
+  background: linear-gradient(to bottom, rgba($soft-black, 0.7) 30%, rgba($soft-black, 0.5) 100%);
+  width: 133rem;
+  height: 80rem;
+  left: 50%;
+  transform: translateX(-50%);
+  @include clip--image-triangle-mobile;
+
+  @include grid-media($grid-tablet-plus) {
+    background: linear-gradient(to bottom, rgba($soft-black, 0.8) 30%, rgba($soft-black, 0.5) 85%, rgba($soft-black, 0.2) 100%);
+  }
+
+  @include grid-media($grid-tablet) {
+    width: 166rem;
+    height: 120rem;
+    @include clip--image-triangle-tablet;
+  }
+
+  @include grid-media($grid-desktop) {
+    width: 202rem;
+    height: 83rem;
+    left: 0;
+    transform: translateX(-18%);
+    @include clip--image-triangle-desktop;
+  }
+
+  @include grid-media($grid-desktop-wide) {
+    transform: translate(-15%, 0);
+  }
+
+  @include grid-media($grid-huge) {
+    transform: translate(4rem, 0);
+  }
+}
+
+.hero--image-triangle-grey-line {
+  background-size: 100%;
+  width: 95%;
+  height: 70rem;
+  top: 10rem; // overrule negative top above
+  left: 50%;
+  transform: translateX(-50%);
+  background: url(img/hero-image-triangle-grey-line-small-screens.svg) center bottom no-repeat;
+  z-index: z('below-all');
+
+  @include grid-media($grid-tablet) {
+    top: 1rem; // overrule negative top above
+    width: 95%;
+    height: 120rem;
+  }
+
+  @include grid-media($grid-desktop) {
+    top: -9rem;
+    width: 100%;
+    height: 55rem;
+    background: url(img/cropped-triangle-grey-line.svg) right bottom no-repeat;
+    background-size: cover;
+    //transform: translate(80%, -10rem);
+    z-index: z('high');
+  }
+
+  @include grid-media($grid-huge) { // position triangle in correct place on huge screens - overrule rule above
+    //transform: translate(80%, -20rem);
+  }
+}
+
+.hero--image-triangle-secondary-triangle {
+  background: url(img/hero-image-triangle-grey-line-small-screens.svg) center top no-repeat;
+  height: 64rem;
+  background-size: 166rem;
+  z-index: z('low');
+  top: 0;
+
+
+  @include grid-media($grid-tablet-plus) {
+  }
+
+  @include grid-media($grid-desktop) {
+    width: 100%;
+    height: 65rem;
+    background: url(img/cropped-triangle-light-grey.svg) right top no-repeat;
+    background-size: auto 65rem;
+    //z-index: z('high');
+    top: -9rem;
+  }
+
+  @include grid-media($grid-huge) { // huge screens
+    //display: none;
+  }
+}
+
+.hero--image-triangle__content {
+  z-index: z('high');
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  height: 80%; // reduce height of content container so content appears vertically centered
+  text-align: center;
+  margin: 0 auto;
+
+  @include grid-media($grid-tablet) {
+    width: 75%;
+  }
+
+  @include grid-media($grid-desktop) {
+    text-align: left;
+    //width: 42rem;
+    min-height: 38rem;
+    padding: 0;
+    margin-left: 13rem;
+  }
+
+  @include grid-media($grid-desktop-wide) {
+    margin-left: 5rem;
+  }
+
+  @include grid-media($grid-huge) { // position triangle in correct place on huge screens - overrule rule above
+    margin-left: 15%;
+  }
+
+  .hero__mini-title,
+  .hero__main-title,
+  .hero__intro {
+    color: white;
+  }
+
+  .hero__mini-title,
+  .hero__main-title {
+    @include grid-media($grid-desktop) {
+      width:70rem;
+    }
+  }
+
+  .hero__intro {
+    @include grid-media($grid-desktop) {
+      width:50rem;
+    }
+  }
+}

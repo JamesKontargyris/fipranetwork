@@ -1,0 +1,31 @@
+.network-map {
+  width: 100%;
+  height: 30rem;
+
+  @include grid-media($grid-tablet-plus) {
+    margin-top:$base-spacing * 2;
+    height: 50rem;
+  }
+
+  @include grid-media($grid-desktop) {
+    height: 70rem;
+  }
+}
+
+.location-map {
+  width:100%;
+  height:50rem;
+
+  @include grid-media($grid-tablet-plus) {
+    margin-top:$base-spacing * 2;
+  }
+}
+
+/* Fixes potential theme css conflict */
+.location-map img {
+  max-width: inherit !important;
+}
+
+.jvectormap-container {
+  padding:3rem;
+}

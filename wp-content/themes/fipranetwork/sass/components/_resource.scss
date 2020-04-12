@@ -1,0 +1,35 @@
+.resource {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom:$base-spacing * 2;
+}
+
+.resource__thumbnail {
+  min-width:15rem;
+
+  img {
+    background:white;
+    box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,0.3);
+    padding:0; // overrule .content-block__content img padding rule
+  }
+}
+
+.resource__title {
+  font-family: $font-headings;
+  @include font-size(21, 28);
+}
+
+.resource__meta {
+  font-style: italic;
+}
+
+.resource__meta,
+.resource__description {
+  @include font-size(15, 21);
+}
+
+.resource__description,
+.resource__links {
+  margin-top:$base-spacing;
+}

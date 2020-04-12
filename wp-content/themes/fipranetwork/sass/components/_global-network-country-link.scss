@@ -1,0 +1,54 @@
+.global-network-country-link-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.global-network-country-link {
+  display: flex;
+  align-items: center;
+  width:calc(50% - 2rem);
+  @include font-size(18, 18);
+  font-family: $font-headings-regular;
+  margin:$base-spacing * 1.5 1rem;
+
+  &:link,
+  &:visited {
+    color:white;
+  }
+
+  @include grid-media($grid-tablet) {
+    width:calc(33% - 2rem);
+  }
+
+  @include grid-media($grid-desktop) {
+    width:calc(20% - 2rem);
+
+    &:active,
+    &:focus,
+    &:hover {
+      color:$mid-grey;
+
+      .global-network-country-link__flag {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+.global-network-country-link__flag {
+  position: relative;
+  display: block;
+  width:5rem;
+  height:4.1rem;
+  background-size: cover !important; // to get around inline background rule on element
+  margin-right:0.6rem;
+  @include clip--global-network-country-flag--small;
+  @include transition;
+
+  @include grid-media($grid-tablet-plus) {
+    //margin-right:2rem;
+    //width:7.5rem;
+    //height:6.2rem;
+    //@include clip--global-network-country-flag;
+  }
+}

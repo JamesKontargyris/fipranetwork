@@ -1,0 +1,222 @@
+.hero--diamond-overlay {
+  position: relative;
+  margin-top:-13rem; // allow for header
+  height:100vh;
+  //background: linear-gradient(to bottom, rgba($logo-blue, 0.3) 0, rgba($logo-blue, 0.3) 100%), url(img/healthcare-wellbeing.jpg) center no-repeat, $dark-blue; // inline on element
+  //background-size:auto, cover, auto !important;
+
+  @include grid-media($grid-desktop) {
+    margin-top:-17.5rem; // allow for header
+    height:73rem;
+  }
+}
+
+.hero--diamond-overlay__content-container {
+  @include container;
+  position: relative;
+  top:50%;
+  transform: translateY(-50%);
+  background:rgba(white, 0.85);
+  height:100%;
+  background:transparent;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include grid-media($grid-mobile) {
+    width:100%;
+    transform: translateY(calc(-50% - 6rem));
+    padding:0;
+  }
+
+  &:before {
+    content:' ';
+    position: absolute;
+    left:-35rem;
+    top:50%;
+    transform: translateY(-50%);
+    //left:-40rem;
+    width:165vw;
+    height:100%;
+    background: url(img/bg-diamond-overlay-hero-diamond.svg) center no-repeat;
+    background-size:90rem;
+
+    @include grid-media($grid-mobile) {
+      width:250vw;
+      left:-45rem;
+    }
+
+    @include grid-media($grid-tablet) {
+      left:-32rem;
+      width:135rem;
+      background-size:135rem;
+    }
+
+    @include grid-media($grid-desktop) {
+      left:-25rem;
+      width:120rem;
+      background-size:120rem;
+    }
+  }
+
+}
+
+.hero--diamond-overlay__content {
+  position: relative;
+  width:95%;
+  margin:0 auto;
+
+  @include grid-media($grid-tablet) {
+    @include grid-column(12);
+    @include grid-push(1);
+  }
+
+  @include grid-media($grid-desktop) {
+    @include grid-column(8);
+    @include grid-push(1);
+  }
+
+  .hero__mini-title,
+  .hero__intro {
+    color:$dark-grey;
+    text-shadow: none;
+  }
+
+  .hero__main-title {
+    color:$logo-blue;
+    text-shadow: none;
+    @include font-size(38, 44);
+
+    @include grid-media($grid-tablet-plus) {
+      @include font-size(54, 58);
+
+    }
+  }
+
+  .hero__main-title--small {
+    @include font-size(28, 34);
+    letter-spacing: -0.1rem;
+
+    @include grid-media($grid-tablet-plus) {
+      @include font-size(40, 44);
+      letter-spacing: -0.2rem;
+
+    }
+  }
+}
+
+.hero--home {
+  &.hero--diamond-overlay {
+    background-size:cover, auto !important;
+
+    @include grid-media($grid-desktop) {
+      height:104vh;
+    }
+  }
+
+  .hero--diamond-overlay__content-container {
+    width:100%;
+
+    @include grid-media($grid-desktop) {
+      position:absolute;
+      left:50%;
+      transform: translateX(-50%);
+      top:0;
+    }
+
+
+    &:before {
+      content:' ';
+      position: absolute;
+      top:50%;
+      left:-44rem;
+      transform: translateY(-50%);
+      width:214vw;
+      height:100%;
+      background-size:90rem;
+
+      @include grid-media($grid-mobile) { // very small screens
+        background:url(img/diamond-green-border.svg) center no-repeat, white;
+        background-size:60rem, auto;
+        height:calc(100% + 0.5rem);
+        width:100%;
+        left:0;
+        opacity:0.8;
+      }
+
+      @include grid-media($grid-tablet-plus) {
+        left:-35rem;
+        width:calc(100% + 50rem);
+        background-size:140rem;
+      }
+    }
+
+    @include grid-media($grid-mobile) { // very small screens
+      transform: translateY(calc(-50% - 6rem));
+      padding:0;
+    }
+
+  }
+
+  .hero__main-title {
+    @include font-size(38, 40);
+    margin:0;
+
+    @include grid-media($grid-tablet-plus) {
+      @include font-size(56, 60);
+      letter-spacing: -0.4rem;
+
+    }
+  }
+
+  .hero__intro {
+    margin-top:$base-spacing;
+    color:$soft-black;
+
+    @include grid-media($grid-tablet-plus) {
+      @include font-size(19, 24);
+      margin-top:$base-spacing * 1.5;
+      //padding-right:4rem;
+    }
+  }
+
+  .hero--diamond-overlay__content {
+    width:auto;
+    max-width:40rem;
+    text-align: center;
+
+    @include grid-media($grid-tablet-plus) {
+      margin:0 auto;
+      max-width:75rem;
+    }
+  }
+
+  .hero__button-group {
+    @include clearfix;
+    margin:$base-spacing auto 0;
+    text-align: center;
+    max-width:35rem;
+
+    @include grid-media($grid-tablet-plus) {
+      margin:$base-spacing * 1.5 auto 0;
+      max-width:60rem;
+    }
+
+    a.btn {
+      display: block;
+      margin:0.5rem 0;
+
+      @include grid-media($grid-tablet-plus) {
+        width:calc(50% - 1rem);
+        float: left;
+        margin-right:1rem;
+      }
+    }
+
+    a.btn--secondary {
+      background:white;
+    }
+  }
+}
+

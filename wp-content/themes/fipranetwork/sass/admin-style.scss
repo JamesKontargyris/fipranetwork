@@ -1,0 +1,352 @@
+/*
+Theme Name: FIPRA
+Author: James Kontargyris
+Author URI: http://jameskontargyris.co.uk/
+Description: FIPRA Wordpress editor styles 2019
+Version: 1.0
+Text Domain: fipranetwork
+*/
+
+@charset "utf-8";
+
+@import
+'abstracts/fonts',
+'abstracts/variables',
+'abstracts/functions',
+'abstracts/mixins',
+'abstracts/placeholders',
+'abstracts/grid';
+
+// TYPOGRAPHY
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-headings;
+  color:$dark-grey;
+  font-weight:normal;
+}
+
+h1 {
+  font-size: 72px;
+  line-height: 76px;
+  letter-spacing: -0.2rem;
+  color:$logo-blue;
+}
+
+
+h2 {
+  font-size: 42px;
+  line-height: 46px;
+  letter-spacing: -0.1rem;
+}
+
+h3 {
+  font-size: 34px;
+  line-height: 38px;
+  letter-spacing: -0.1rem;
+}
+
+h4 {
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: -0.05rem;
+}
+
+h5 {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+h6 {
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: uppercase;
+  font-family: $font-body;
+  letter-spacing: 0.4rem;
+}
+
+// BUTTONS AND LINKS
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  display: inline-block;
+  background-color:tint($light-grey, 30%);
+  font-family: $font-headings;
+  font-size:14px;
+  line-height:17px;
+  letter-spacing: 1px;
+  margin-bottom:5px;
+  text-transform: uppercase;
+  padding:15px 20px;
+  border-radius: $base-border-radius;
+
+  &:last-of-type {
+    margin-right:10px;
+  }
+}
+
+.btn--primary {
+  background-color:$link-color;
+  color:white !important;
+}
+
+.btn--secondary {
+  background-color: transparent;
+  border:1px solid $link-color;
+}
+
+.btn--rounded {
+  border-radius: 999rem;
+}
+
+.btn--x-large {
+  font-size:21px;
+  line-height:24px;
+  padding:30px 80px;
+}
+
+.btn--large {
+  font-size:18px;
+  line-height:20px;
+  padding:20px 60px;
+}
+
+.btn--small {
+  font-size:14px;
+  line-height:16px;
+  padding:10px 20px;
+  letter-spacing: 1px;
+}
+
+.btn--left-arrow {
+  &:before {
+    display: inline-block;
+    content: '\00ab';
+    color:$yellow;
+    font-size:150%;
+    margin-right:10px;
+  }
+}
+
+.btn--right-arrow {
+  &:after {
+    display: inline-block;
+    content: '\00bb';
+    color:$yellow;
+    font-size:150%;
+    margin-left:10px;
+  }
+}
+
+hr {
+  margin:$base-spacing * 2 0;
+  border:0;
+  height:0.1rem;
+  width:100%;
+  background-color: $light-grey;
+}
+
+// TEXT HELPERS
+
+.text--upper {
+  text-transform: uppercase;
+  letter-spacing: 0rem;
+}
+.text--center,
+.text--centre {
+  text-align: center;
+
+  &.with-line { // move line to centre for headings using the with-line class
+    &:after {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+// Text colours
+.text--white {
+  color:white !important;
+}
+.text--dark-blue {
+  color:$dark-blue !important;
+}
+.text--yellow {
+  color:$yellow !important;
+}
+
+// Font weights
+.text--heading-regular {
+  font-family: $font-headings-regular;
+}
+
+// Font families
+.font--heading {
+  font-family: $font-headings;
+}
+
+
+// BLOCKS
+
+.editor-post-title__input {
+  @extend h1;
+}
+
+.wp-block-paragraph {
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size:18px;
+  line-height:1.9;
+  //font-size: $base-font-size;
+}
+
+.wp-block-block-lab-lead-paragraph {
+  font-size:23px;
+  line-height:44px;
+  font-family: $font-headings-regular;
+  color:$dark-blue;
+}
+
+.large-feature--editor-preview {
+  background:$light-grey;
+  padding:1.5rem;
+
+  .large-feature__mini-title {
+    font-size:14px;
+    line-height:17px;
+    text-transform: uppercase;
+    font-family: $base-font-family;
+    color:$dark-blue;
+    letter-spacing: 2px;
+  }
+
+  .large-feature__main-title {
+    font-size:42px;
+    line-height:50px;
+    letter-spacing: -2px;
+    font-family: $font-headings;
+    color:$logo-blue;
+    margin:0 0 19px;
+  }
+
+  .large-feature__description {
+    font-family: $base-font-family;
+
+    p {
+      margin-top:0;
+    }
+  }
+
+}
+
+.small-feature--editor-preview {
+  background:$light-grey;
+  padding:1.5rem;
+
+  .small-feature__mini-title {
+    font-size:14px;
+    line-height:17px;
+    text-transform: uppercase;
+    font-family: $base-font-family;
+    color:$dark-blue;
+    letter-spacing: 2px;
+    margin-bottom: $small-spacing;
+  }
+
+  .small-feature__main-title {
+    font-size:40px;
+    line-height:44px;
+    letter-spacing: -2px;
+    font-family: $font-headings;
+    color:$logo-blue;
+    margin:0 0 19px;
+  }
+
+  .small-feature__description {
+    font-family: $base-font-family;
+
+    p {
+      margin-top:0;
+    }
+  }
+
+}
+
+.page-footer-cta__title {
+  font-family: $font-headings-regular;
+}
+
+.page-footer-cta__content {
+  padding-top:2rem;
+  padding-bottom:2rem;
+  text-align:center;
+}
+
+
+blockquote {
+  position: relative;
+  padding-left:0;
+  padding-top:60px;
+  margin-left:0;
+  margin-right:0;
+  margin-bottom:$base-spacing;
+  color:$dark-blue;
+  font-family: $font-headings-regular-italic;
+
+  p {
+    margin-top:0;
+    font-size:23px;
+    line-height:38px;
+  }
+
+  &:before {
+    position: absolute;
+    top:0;
+    left:-5px;
+    content:'\201c';
+    font-family: $font-headings-italic;
+    color:$yellow;
+    font-size:125px;
+    line-height:125px;
+  }
+
+  //@include grid-media($grid-tablet-plus) {
+  //  padding-left:9rem;
+  //  padding-top:0.5rem;
+  //
+  //  &:before {
+  //    top:0;
+  //    left:0;
+  //    @include font-size(150, 150);
+  //  }
+  //}
+}
+
+cite {
+  display: block;
+  font-size:12px;
+  line-height:22px;
+  color:$dark-blue;
+  font-family: $font-body-bold;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom:$base-spacing;
+}
+
+blockquote + p > cite,
+blockquote + cite {
+
+  //@include grid-media($grid-tablet-plus) {
+  //  padding-left:9rem;
+  //}
+}
+

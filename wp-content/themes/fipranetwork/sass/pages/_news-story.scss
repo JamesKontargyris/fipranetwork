@@ -1,0 +1,38 @@
+.hero--news-story__content-container {
+  padding-top:13rem; // to allow for negative margin above
+  padding-bottom:8rem;
+
+  @include grid-media($grid-tablet-plus) {
+    padding-top:22rem; // to allow for negative margin above
+    padding-bottom:20rem;
+  }
+}
+
+.hero--news-story__content {
+  .hero__main-title {
+    @include font-size(30, 36);
+    letter-spacing: 0;
+
+    @include grid-media($grid-tablet-plus) {
+      @include font-size(52, 58);
+      letter-spacing: -0.2rem;
+    }
+  }
+
+  .hero__intro {
+    @include font-size(20, 24);
+  }
+
+  @include grid-media($grid-desktop) {
+    @include grid-column(10);
+    @include grid-push(1);
+  }
+}
+
+.news-story-card-group--older-updates {
+  display: none;
+}
+
+.older-updates__trigger {
+  margin:$base-spacing 0 $base-spacing * 3;
+}

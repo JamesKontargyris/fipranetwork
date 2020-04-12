@@ -1,0 +1,33 @@
+.info-box-container {
+  // mirrors .content-block__content
+  @include container(false);
+  padding: 0 3rem;
+
+
+  @include grid-media($grid-tablet-plus) {
+    padding: 0 12rem;
+  }
+
+  @include grid-media($grid-desktop) {
+    padding: 0 18rem;
+  }
+}
+
+.info-box__group {
+  @include clearfix; // to clear any floats within the info box group
+  margin:$base-spacing * 3 auto;
+}
+
+.info-box {
+  border:0.1rem solid $yellow;
+  border-radius: $base-border-radius;
+  @include font-size(16, 18);
+  margin:$base-spacing auto;
+  padding:1.5rem;
+}
+
+.info-box__title {
+  font-family: $font-headings;
+  margin-bottom:$base-spacing * 0.5;
+  @include font-size(18, 20);
+}

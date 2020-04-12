@@ -1,0 +1,187 @@
+.page-nav-bar {
+  position: relative;
+  @include container;
+  padding: 0 !important; // overrule container
+  box-shadow: 0 0.1rem 0.3rem rgba(black, 0.3);
+  background: linear-gradient(to top, shade(white, 10%) 0, white 3rem);
+  @include font-size(15, 18);
+  margin: 0 1rem 1rem;
+  z-index: z('high');
+  transform: translateY(-3rem);
+  border-radius: $base-border-radius * 2;
+  overflow: hidden;
+
+  &.page-nav-bar--no-top-margin {
+    transform: translateY(0);
+  }
+
+  @include grid-media($grid-desktop) {
+    margin: auto;
+  }
+
+  &.is-stuck {
+    transform: translateY(0.5rem); // little bit of spacing at the top of the screen
+
+    @include grid-media($grid-desktop) { // centre the nav on desktop
+      left: 50%;
+      transform: translate(-50%, 0.5rem);
+
+    }
+  }
+}
+
+.page-nav-bar__sections {
+  @include clearfix;
+}
+
+.page-nav-bar__section {
+  padding: 2rem;
+  height: 100%;
+
+  &:not(:last-of-type) {
+    border-bottom:0.1rem solid $light-grey;
+  }
+
+  @include grid-media($grid-desktop) {
+    border-bottom:0;
+
+    &:not(:last-of-type) {
+      border-right:0.1rem solid $light-grey;
+    }
+  }
+}
+
+.page-nav-bar__section--no-pad {
+  padding: 0;
+}
+
+.page-nav-bar__section--one-third {
+  @include grid-media($grid-desktop) {
+    float: left;
+    width: 35%;
+  }
+}
+
+.page-nav-bar__section--two-thirds {
+  @include grid-media($grid-desktop) {
+    float: left;
+    width: 65%;
+  }
+}
+
+.page-nav-bar__section__title {
+  display: block;
+  color: tint($dark-grey, 30%);
+  margin-right: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-family: $font-headings;
+
+  @include grid-media($grid-desktop) {
+    margin-bottom: 0;
+    display: inline-block;
+  }
+}
+
+.page-nav-bar__link {
+  display: block;
+  margin-top: 1rem;
+
+  &:not(:last-of-type) {
+    margin-right: 1.5rem;
+  }
+
+  @include font-size(18, 20);
+
+  @include grid-media($grid-tablet-plus) {
+    display: inline-block;
+    margin-top: 0;
+  }
+
+  @include grid-media($grid-desktop) {
+    @include font-size(15, 18);
+  }
+}
+
+.page-nav-bar--sub {
+  display: none;
+  background: linear-gradient(to bottom, shade($dark-blue, 20%) 0, $dark-blue 1rem);
+  padding: 1.5rem;
+
+  @include grid-media($grid-tablet-plus) {
+    padding: 3rem;
+  }
+}
+
+.page-nav-bar--sub__menu {
+  display: none; // hide all sub-menu sections and reveal them with JS
+  color: $light-grey;
+}
+
+.page-nav-bar--sub__content {
+}
+
+.page-nav-bar__tab-menu,
+.page-nav-bar__tab-menu__item {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background: transparent; // to remove diamond bullets
+}
+
+.page-nav-bar__tab-menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  align-content: center;
+}
+
+.page-nav-bar__tab-menu__item {
+  flex-grow: 1;
+  background: linear-gradient(to top, shade(white, 10%) 0, white 4rem);
+
+  &:not(:last-of-type) {
+    border-right: 0.1rem solid $light-grey;
+  }
+
+  &.is-active {
+    font-family: $font-body-bold;
+    background: linear-gradient(to top, shade($green, 20%) 0, $green 4rem);
+
+    a {
+      color: white;
+    }
+  }
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center; // to vertically centre text
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 3rem 1rem;
+    font-family: $font-headings;
+
+    @include grid-media($grid-tablet-plus) {
+      @include font-size(18, 24);
+      padding: 3rem 2rem;
+    }
+
+    @include grid-media($grid-desktop) {
+      @include font-size(20, 26);
+      padding: 3rem;
+    }
+
+    @include grid-media($grid-desktop) {
+      &:hover {
+        background: rgba($green, 0.2);
+      }
+
+      &:focus,
+      &:active {
+        background: $green;
+        outline: none;
+      }
+    }
+  }
+}

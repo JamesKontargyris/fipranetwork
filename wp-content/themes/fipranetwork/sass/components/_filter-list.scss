@@ -1,0 +1,52 @@
+.filter-list {
+  margin-bottom:$base-spacing * 2;
+  border:0.1rem solid $light-grey;
+  border-radius: $base-border-radius;
+  padding:1rem 2rem;
+
+  @include grid-media($grid-desktop) {
+    //position: absolute;
+    //top:2rem;
+    //right:0;
+  }
+}
+
+.filter-list__title {
+  font-family: $font-headings;
+  margin-bottom:$base-spacing * 0.5;
+  @include font-size(18, 20);
+  display: inline-block;
+}
+
+.filter-list__trigger {
+  cursor: pointer;
+}
+
+.filter-list__trigger--down-arrow,
+.filter-list__trigger--up-arrow {
+  &:after {
+    content: ' ';
+    display:inline-block;
+    width:1.4rem;
+    height:1.4rem;
+    margin-left:0.5rem;
+  }
+}
+
+.filter-list__trigger--down-arrow {
+  &:after {
+    background:url(img/icon-down-arrow.svg) center no-repeat;
+    background-size:1.4rem 1.4rem;
+  }
+}
+
+.filter-list__trigger--up-arrow {
+  &:after {
+    background:url(img/icon-up-arrow.svg) center no-repeat;
+    background-size:1.4rem 1.4rem;
+  }
+}
+
+.filter-list__reveal {
+  display: none;
+}

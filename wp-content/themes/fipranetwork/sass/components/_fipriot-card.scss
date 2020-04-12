@@ -1,0 +1,191 @@
+.team-group {
+  margin:$base-spacing * 3 0;
+}
+
+.fipriot-card-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.fipriot-card {
+  position: relative;
+  width:100%;
+  text-align: center;
+  border:0.1rem solid $light-grey;
+  background: white;
+  @include font-size(17, 22);
+  color:$dark-grey;
+  border-radius: $base-border-radius;
+  margin-bottom:$base-spacing * 2;
+  margin-top:3rem; // to allow for overlapping diamond photo
+
+  @include grid-media($grid-tablet-plus) {
+    width:32%;
+    margin-right:2%;
+    @include font-size(15, 20);
+
+    &:nth-child(3n) {
+      margin-right:0;
+    }
+  }
+
+  //@include grid-media($grid-desktop) {
+  //  width:23.5%;
+  //  margin-right:2%;
+  //
+  //  &:nth-child(4n) {
+  //    margin-right:0;
+  //  }
+  //}
+}
+
+.fipriot-card__photo {
+  margin-top:-3rem;
+
+  img {
+    background:$light-grey;
+    @extend .rounded;
+    @include base-box-shadow;
+    @include transition;
+    width:14rem;
+    height:14rem;
+  }
+
+  @include grid-media($grid-desktop) { // fipriot-card__photo
+
+    &:focus,
+    &:active,
+    &:hover {
+      img {
+        transform: scale(1.16);
+      }
+    }
+
+  }
+
+}
+
+.fipriot-card__info {
+  padding:2rem;
+}
+
+.fipriot-card__name {
+  font-family: $font-headings;
+  @include font-size(28, 30);
+  color:$dark-blue;
+  letter-spacing: -0.05rem;
+
+  @include grid-media($grid-tablet-plus) {
+    @include font-size(24, 28);
+  }
+}
+
+.fipriot-card__position {
+  font-family: $font-headings-regular;
+  @include font-size(20, 22);
+  color:$soft-black;
+
+  @include grid-media($grid-tablet-plus) {
+    @include font-size(18, 20);
+  }
+}
+
+.fipriot-card__meta {
+  margin-top:2rem;
+}
+
+.fipriot-card__contact-links {
+  @include clearfix;
+  background: $light-grey;
+  padding:1rem 1.5rem;
+}
+
+.fipriot-card__contact-links__tel-number {
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 1.7rem;
+    height: 1.5rem;
+    background: url(img/icon-fipriot-contact-telephone-dark-blue.svg) left center no-repeat;
+    background-size: 1.5rem 1.5rem;
+    @include font-size(20, 22);
+  }
+
+  @include grid-media($grid-tablet-plus) {
+    float:left;
+    background-size: 1.2rem 1.2rem;
+    @include font-size(17, 20);
+  }
+}
+
+.fipriot-card__contact-links__buttons {
+  margin-top:0.5rem;
+
+  @include grid-media($grid-tablet-plus) {
+    margin-top:0;
+    float: right;
+  }
+}
+
+.fipriot-card__contact-links__button {
+  display: inline-block;
+  width:3.2rem;
+  height:3.2rem;
+  text-indent:-999rem;
+  @include transition;
+  @extend .rounded;
+
+  &:not(:last-of-type) {
+    margin-right:1rem;
+  }
+
+  @include grid-media($grid-tablet-plus) {
+    width:2.4rem;
+    height:2.4rem;
+  }
+
+  @include grid-media($grid-desktop) {
+    &:active,
+    &:focus,
+    &:hover {
+      opacity:0.7;
+    }
+  }
+}
+
+.fipriot-card__contact-links__button--twitter {
+  background: url(img/icon-fipriot-contact-twitter.svg) center no-repeat, white;
+  background-size:3.2rem 3.2rem;
+
+  @include grid-media($grid-tablet-plus) {
+    background-size:2.4rem 2.4rem;
+  }
+}
+
+.fipriot-card__contact-links__button--linkedin {
+  background: url(img/icon-fipriot-contact-linkedin.svg) center no-repeat, white;
+  background-size:3.2rem 3.2rem;
+
+  @include grid-media($grid-tablet-plus) {
+    background-size:2.4rem 2.4rem;
+  }
+}
+
+.fipriot-card__contact-links__button--email {
+  background: url(img/icon-fipriot-contact-email.svg) center no-repeat, white;
+  background-size:3.2rem 3.2rem;
+
+  @include grid-media($grid-tablet-plus) {
+    background-size:2.4rem 2.4rem;
+  }
+}
+
+.fipriot-card__contact-links__button--telephone {
+  background: url(img/icon-fipriot-contact-telephone.svg) center no-repeat, white;
+  background-size:3.2rem 3.2rem;
+
+  @include grid-media($grid-tablet-plus) {
+    background-size:2.4rem 2.4rem;
+  }
+}

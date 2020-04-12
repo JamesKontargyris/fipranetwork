@@ -1,0 +1,26 @@
+table {
+  text-align:left;
+
+  thead tr th { // header row cells
+    background:$dark-blue;
+    color:white;
+    border-color: white;
+    font-family: $font-headings;
+    font-weight:normal;
+  }
+
+  th, td { // header and body cells
+    padding:0.7rem;
+  }
+
+  tbody tr { // body rows
+    border-bottom:0.1rem solid $light-grey;
+
+    th { // body highlighted cells
+      background:tint($dark-blue, 90%);
+      font-family: $font-headings;
+      font-weight:normal;
+      border-bottom:0.1rem solid white;
+    }
+  }
+}

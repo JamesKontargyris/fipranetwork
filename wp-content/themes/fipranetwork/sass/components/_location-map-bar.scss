@@ -1,0 +1,40 @@
+.location-map-bar {
+  position: relative;
+  height:49rem;
+
+  @include grid-media($grid-tablet-plus) {
+    margin-top:$base-spacing * 2;
+  }
+}
+
+.location-map-bar-container {
+  position: relative;
+}
+
+.location-map-bar__address {
+  background:$dark-blue;
+  padding:3rem 4rem;
+  color:white;
+  margin:$base-spacing * 2 0 0;
+  text-align: center;
+
+  &.location-map-bar__address--with-map {
+
+    @include grid-media($grid-tablet-plus) {
+      background:rgba($dark-blue, 0.8);
+      position: absolute;
+      bottom:0;
+      right:0;
+      min-width:40rem;
+      z-index: z('high');
+      margin:0;
+      text-align: left;
+    }
+
+  }
+
+}
+
+.location-map-bar__address__pin-icon {
+  height:1.6rem;
+}
