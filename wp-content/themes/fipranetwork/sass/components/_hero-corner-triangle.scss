@@ -12,7 +12,7 @@
 
   @include grid-media($grid-tablet-plus) {
     position: absolute;
-    top:-13rem; // allows for the header bar
+    top:-14.5rem; // allows for the header bar
     right:-7rem;
     width:75rem;
     height:45rem;
@@ -36,7 +36,7 @@
   @include grid-media($grid-tablet-plus) {
     display: block;
     position: absolute;
-    top:-13rem; // allows for the header bar
+    top:-14.5rem; // allows for the header bar
     right:-5rem;
     width:75rem;
     height:45rem;
@@ -58,7 +58,7 @@
   @include grid-media($grid-tablet-plus) {
     display: block;
     position: absolute;
-    top:-5rem; // allows for the header bar
+    top:-6.5rem; // allows for the header bar
     right:-17rem;
     background: url(img/corner-triangle-header-grey-diamond.svg) top right no-repeat;
     background-size:70rem;

@@ -25,11 +25,17 @@ header.site__header {
     padding:0;
     @include font-size(34, 34);
     font-family: $font-body;
-    width:12rem;
+    width:9rem;
     height:3.733332rem;
-    background-size:12rem 3.733332rem;
+    background-size:9rem 3.733332rem;
     cursor:pointer;
     text-indent: -999rem;
+
+    @include grid-media($grid-tablet-plus) {
+	  width:12rem;
+      height:4.5rem;
+      background-size:12rem 4.5rem;
+    }
   }
 
   .site__header__logo--blue--desktop {

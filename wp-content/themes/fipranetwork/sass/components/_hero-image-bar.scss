@@ -1,6 +1,6 @@
 .hero--image-bar {
   position: relative;
-  margin-top:-13rem; // allow for header
+  margin-top:-14.5rem; // allow for header
 
   @include grid-media($grid-desktop) {
     margin-top:-17.5rem; // allow for header
